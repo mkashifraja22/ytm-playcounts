@@ -1,0 +1,257 @@
+:root{--bg:#101218;--surface:#171a23;--line:#262a37;--text:#ebe8f4;--muted:#8d91a6;--accent:#ff5c8a;--bar:rgba(255,92,138,.16);
+--head:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;--body:"Instrument Sans",system-ui,sans-serif}
+*{
+  box-sizing:border-box
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:15px/1.5 var(--body)
+}
+main{
+  max-width:1100px;
+  margin:0 auto;
+  padding:48px 20px 80px
+}
+h1{
+  font:700 clamp(30px,5vw,48px)/1.05 var(--head);
+  letter-spacing:-.02em;
+  margin:0 0 10px;
+  max-width:16ch
+}
+.sub{
+  color:var(--muted);
+  max-width:60ch;
+  margin:0 0 28px
+}
+form{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+  align-items:stretch;
+  margin-bottom:8px
+}
+textarea{
+  background:var(--surface);
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:14px;
+  font:inherit;
+  min-height:88px;
+  resize:vertical
+}
+textarea:focus,input:focus{
+  outline:2px solid var(--accent);
+  outline-offset:1px
+}
+button{
+  font:600 15px var(--body);
+  border:0;
+  border-radius:10px;
+  padding:0 22px;
+  cursor:pointer;
+  background:var(--accent);
+  color:#1a0610
+}
+button:focus-visible{
+  outline:2px solid #fff;
+  outline-offset:2px
+}
+button.ghost{
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--line);
+  padding:8px 14px
+}
+button:disabled{
+  opacity:.5;
+  cursor:wait
+}
+.hint{
+  color:var(--muted);
+  font-size:13px;
+  margin:0 0 36px
+}
+.bar{
+  display:flex;
+  gap:12px;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+  flex-wrap:wrap
+}
+.artist{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin-bottom:22px;
+  overflow:hidden
+}
+.ahead{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  padding:18px 20px;
+  border-bottom:1px solid var(--line);
+  flex-wrap:wrap
+}
+.ahead img{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  object-fit:cover;
+  background:var(--line)
+}
+.ahead h2{
+  font:700 24px var(--head);
+  margin:0
+}
+.meta{
+  color:var(--muted);
+  font-size:13px
+}
+.total{
+  margin-left:auto;
+  text-align:right;
+  font:700 26px var(--head)
+}
+.total small{
+  display:block;
+  font:400 12px var(--body);
+  color:var(--muted)
+}
+input[type=search]{
+  background:var(--bg);
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:8px 12px;
+  font:inherit;
+  width:220px
+}
+.scroll{
+  overflow-x:auto
+}
+table{
+  border-collapse:collapse;
+  width:100%;
+  min-width:760px
+}
+th,td{
+  padding:10px 14px;
+  text-align:left;
+  border-bottom:1px solid var(--line);
+  white-space:nowrap
+}
+th{
+  font-weight:500;
+  color:var(--muted);
+  font-size:13px;
+  cursor:pointer;
+  user-select:none
+}
+th[aria-sort]{
+  color:var(--text)
+}
+tr:last-child td{
+  border-bottom:0
+}
+td.song{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  max-width:340px
+}
+td.song img{
+  width:38px;
+  height:38px;
+  border-radius:5px;
+  flex:none;
+  background:var(--line)
+}
+td.song span{
+  overflow:hidden;
+  text-overflow:ellipsis
+}
+td.plays{
+  font-variant-numeric:tabular-nums;
+  font-weight:600;
+  position:relative;
+  min-width:150px
+}
+td.plays i{
+  position:absolute;
+  inset:6px auto 6px 0;
+  background:var(--bar);
+  border-radius:0 6px 6px 0
+}
+td.plays b{
+  position:relative;
+  font-weight:600
+}
+code{
+  font:12px ui-monospace,Menlo,monospace;
+  color:var(--muted);
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:3px 7px;
+  cursor:copy
+}
+code:hover{
+  color:var(--text);
+  border-color:var(--accent)
+}
+.err{
+  border:1px solid #5b2a3a;
+  color:#ff9db7;
+  padding:14px 18px;
+  border-radius:10px;
+  margin-bottom:16px
+}
+.skel{
+  height:160px;
+  border-radius:14px;
+  margin-bottom:22px;
+  background:linear-gradient(90deg,var(--surface),#1d2130,var(--surface));
+  background-size:200% 100%;
+  animation:s 1.4s linear infinite
+}
+@keyframes s{to{
+  background-position:-200% 0
+}
+}
+.toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--text);
+  color:var(--bg);
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:600;
+  opacity:0;
+  transition:opacity .2s;
+  pointer-events:none
+}
+.toast.on{
+  opacity:1
+}
+@media(max-width:640px){form{
+  grid-template-columns:1fr
+}
+button{
+  padding:12px
+}
+.total{
+  margin-left:0;
+  text-align:left
+}
+}
+@media(prefers-reduced-motion:reduce){.skel{
+  animation:none
+}
+}

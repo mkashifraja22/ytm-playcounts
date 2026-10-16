@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play counts for YouTube Music artists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<main>
+  <h1>Play counts for any YouTube Music artist</h1>
+  <p class="sub">Add artist names, one per line. You get every song's play count with its song, artist and album IDs, ready to copy or export.</p>
+  <form id="f">
+    <textarea id="q" aria-label="Artists, one per line" placeholder="layze&#10;Snow Banks&#10;Yung Deco"></textarea>
+    <button id="go">Get play counts</button>
+  </form>
+  <p class="hint">You can also paste a channel ID (UC...) or a music.youtube.com channel link. Counts are rounded by YouTube Music above 1K.</p>
+  <div id="bar" class="bar" hidden>
+    <span id="count" class="meta"></span>
+    <button class="ghost" id="csv">Download CSV</button>
+  </div>
+  <div id="out" aria-live="polite"></div>
+</main>
+<div class="toast" id="toast"></div>
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
